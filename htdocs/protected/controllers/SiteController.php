@@ -31,9 +31,25 @@ class SiteController extends Controller
 		// using the default layout 'protected/views/layouts/main.php'
 		// $this->render('index');
 
+		// var_dump($this);
+		// var_dump(Yii::app()->getController());
 
-		$this->smarty->assign('name','张三');
-		$this->smarty->display('a.tpl');
+		// $request = ;
+		$request_path = Yii::app()->request->getUrl();
+		$path = preg_replace('/^\/+|\/+$/', '', $request_path);
+		
+		// index
+		if ($path==='')
+		{
+			$path ='index';
+		}
+
+		// load mock data
+		$str = file_get_contents(Yii::app()->basePath.DIRECTORY_SEPARATOR.'views/mock'.DIRECTORY_SEPARATOR.$path.'.json');
+		$json = json_decode($str, true);
+
+		$this->smarty->assign('data', $json);
+		$this->smarty->display($path.'.tpl');
 	}
 
 	/**
