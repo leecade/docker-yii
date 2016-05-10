@@ -1,46 +1,16 @@
-```sh
-$ docker run --rm -it -p 2222:22 -p 8080:8080 -v /Users/yuji/work/new/www:/home/work/www -v /Users/yuji/work/new/vhost:/home/work/local/nginx-1.7.7/conf/virtualhost homelink 
-```
+# A simple yii+smarty env for front-end developer
 
-
-docker run --rm -it -p 8000:80 -p 2222:22 -v ~/tmp/htdocs:/app/yii/htdocs yii
-docker run --rm -it -p 8000:80 -p 2222:22 -v views:/app/yii/htdocs/protected/views yii
-
-
-
-http://localhost:8000/ index.tpl
-http://localhost:8000/detail detail/index.tpl
-http://localhost:8000/detail/xxx/ detail/xxx/index.tpl
-
-
-SSH
-
-```sh
-$ ssh root@localhost -p 2222
-```
-
-password: 123
-
-
-
-#
-
-
-
-simple
+How to run the env
 
 ```
-$ docker run --rm -it -p 8000:80 yii
+$ docker run --rm -it -p 8000:80 leecade/yii
 ```
 
 then: http://localhost:8000/
 
-provide `views`
+it works, we may see a simple webapp include mock data, template and static resource.
 
-
-```
-mkdir -p views/{mock,static/css,tpl} && touch views/{mock/index.json,static/css/index.css,tpl/index.tpl}
-```
+Now we create some front-end files, looks like:
 
 ```
 ├── views
@@ -51,6 +21,12 @@ mkdir -p views/{mock,static/css,tpl} && touch views/{mock/index.json,static/css/
 │   │       └── index.css
 │   └── tpl
 │       └── index.tpl
+```
+
+generate file structure
+
+```sh
+$ mkdir -p views/{mock,static/css,tpl} && touch views/{mock/index.json,static/css/index.css,tpl/index.tpl}
 ```
 
 views/mock/index.json
@@ -85,14 +61,15 @@ html, body {
 }
 ```
 
+Mount the folder
 
 ```
-docker run --rm -it -p 8000:80 -v /Users/yuji/tmp/views:/views yii
+docker run --rm -it -p 8000:80 -v /Users/yuji/tmp/views:/views leecade/yii
 ```
 
 then: http://localhost:8000/
 
-url to tpl:
+url -> tpl:
 
 ```
 / -> tpl/index.tpl
@@ -103,10 +80,10 @@ url to tpl:
 SSH
 
 ```
-docker run --rm -it -p 8000:80 -p 2222:22 -v /Users/yuji/tmp/views:/views yii
+docker run --rm -it -p 8000:80 -p 2222:22 -v /Users/yuji/tmp/views:/views leecade/yii
 ```
 
-then:
+then(password: `123`):
 
 ```
 ssh root@localhost -p 2222
