@@ -68,7 +68,7 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf && \
     sed -i.bak 's/log_errors_max_len = 1024/log_errors_max_len = 65536/' /etc/php.ini && \
 
     # Fixing Yii failed to open stream: No such file or directory
-    sed -i.bak 's/\/\/ use include so that the error PHP file may appear/if(preg_match("\/smarty\/i", $className)){ return; }' /app/yii/framework/YiiBase.php
+    sed -i.bak '/\/\/ use include so that the error PHP file may appear/c if(preg_match("\/smarty\/i", $className)){ return; }' /app/yii/framework/YiiBase.php
 
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
