@@ -53,7 +53,11 @@ WORKDIR /app
 RUN curl -L https://github.com/yiisoft/yii/archive/1.1.13.tar.gz | tar -xz && \
     mv yii-1.1.13 yii
 
-ADD htdocs /app/yii/htdocs
+ADD webapp /app/yii/webapp
+
+# shortcut
+ADD views /views
+RUN ln -sf /views /app/yii/webapp/protected/views
 
 # RUN curl -L https://github.com/smarty-php/smarty/archive/v3.1.19.tar.gz | tar xz
 
@@ -91,5 +95,5 @@ RUN chmod 700 /root/run.sh
 
 CMD [ "/root/run.sh" ]
 
-VOLUME [ "/app/yii/htdocs" ]
+VOLUME [ "/views" ]
 EXPOSE 22 80 8080 443
