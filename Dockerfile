@@ -3,6 +3,9 @@ MAINTAINER leecade <yuji@lianjia.com>
 
 LABEL Description="This image is used to provide a online-like devlopment environment" Version="0.1.0"
 
+# ENV
+ENV DEFAULT_PASSWROD 123
+
 # Import the RPM GPG keys for Repositories & Install missing pkg
 RUN yum install -y epel-release && yum install -y \
         curl \
@@ -23,6 +26,8 @@ RUN yum install -y epel-release && yum install -y \
         php-xsl \
   && rm -rf /var/cache/yum/* \
   && yum clean all
+
+RUN echo root:$DEFAULT_PASSWROD | chpasswd
 
 # Set up SSH environment.
 RUN ssh-keygen -q -N '' -t dsa -f /etc/ssh/ssh_host_dsa_key

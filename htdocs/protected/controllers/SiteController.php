@@ -31,6 +31,7 @@ class SiteController extends Controller
 		// using the default layout 'protected/views/layouts/main.php'
 		// $this->render('index');
 
+
 		$this->smarty->assign('name','张三');
 		$this->smarty->display('a.tpl');
 	}
