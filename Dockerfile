@@ -77,6 +77,7 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf && \
 
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
+RUN ln -sf /dev/stderr /var/log/php-fpm/www-error.log
 
 # /!\ DEVELOPMENT ONLY SETTINGS /!\
 # Running PHP-FPM as root, required for volumes mounted from host
