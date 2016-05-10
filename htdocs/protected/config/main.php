@@ -79,6 +79,7 @@ return array(
 				*/
 			),
 		),
+		'class'=>'application.extensions.CSmarty',
 	),
 
 	// application-level parameters that can be accessed
