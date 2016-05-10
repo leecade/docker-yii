@@ -31,8 +31,8 @@ class SiteController extends Controller
 		// using the default layout 'protected/views/layouts/main.php'
 		// $this->render('index');
 
-		Yii::app()->smarty-> assign('name','张三');
-		Yii::app()->smarty-> display('a.tpl');
+		Yii::app()->smarty->assign('name','张三');
+		Yii::app()->smarty->display('a.tpl');
 	}
 
 	/**
