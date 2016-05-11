@@ -57,6 +57,7 @@ ADD webapp /app/yii/webapp
 
 # shortcut
 ADD views /views
+ADD views /views.example
 RUN ln -sf /views /app/yii/webapp/protected/views
 
 # RUN curl -L https://github.com/smarty-php/smarty/archive/v3.1.19.tar.gz | tar xz

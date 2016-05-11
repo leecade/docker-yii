@@ -29,6 +29,9 @@ touch /var/log/nginx/access.log \
 # find /app/web/assets -type d -print0 | xargs -0 chmod 777
 # find /app/web/assets -type f -print0 | xargs -0 chmod 666
 
+# generate example
+[[ -z $(ls /views) ]] && cp -r /views.example/* /views
+
 # start PHP and nginx
 service php-fpm start
 service sshd start
