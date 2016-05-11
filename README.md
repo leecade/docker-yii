@@ -18,7 +18,7 @@ Write and render smarty template with no environment depend.
 
 1. Install docker
 
-> Recommend [docker beta](https://beta.docker.com/docs/), no more Virtualbox and many awesome features.
+  > Recommend [docker beta](https://beta.docker.com/docs/), no more Virtualbox and many awesome features.
 
 2. Start a container
 
