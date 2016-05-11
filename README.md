@@ -4,6 +4,8 @@
 
 Write and render smarty template with no environment depend.
 
+There is a smaller version `registry.aliyuncs.com/do/smarty`(60MB) avaiable
+
 ## TODO
 
 - [ ] Supports remote mock data
