@@ -23,7 +23,7 @@ Write and render smarty template with no environment depend.
 2. Start a container
 
 ```sh
-$ docker run -p 8000:80 leecade/yii
+$ docker run -p 8000:80 registry.aliyuncs.com/do/yii
 ```
 
 Waiting a while, the first startup need to download a image, after the container is running we can open http://localhost:8000/ in browser.
@@ -33,7 +33,7 @@ Yes it works, we may see a simple page because there is a smarty render server i
 ## Start with local endpoint mount
 
 ```sh
-$ docker run -p 8000:80 -v ~/tmp/views:/views leecade/yii
+$ docker run -p 8000:80 -v ~/tmp/views:/views registry.aliyuncs.com/do/yii
 ```
 
 A basic file structure be generated in `~/tmp/views`:
@@ -67,7 +67,7 @@ Try to edit it and refresh the browser.
 ### How to connect the container with ssh protocol
 
 ```sh
-$ docker run -p 8000:80 -p 2222:22 leecade/yii
+$ docker run -p 8000:80 -p 2222:22 registry.aliyuncs.com/do/yii
 ```
 
 Add a port map (`2222`:`22`), then:
